@@ -14,6 +14,11 @@ app.get('*',(req,res,next)=>{
    res.sendFile(path.join(__dirname,'public','index.html'));
 })
 
+app.post('/save',(req,res)=>{
+	console.log(req.data);
+	res.status(200).send('yea');
+})
+
 app.listen(port,()=>{
 	console.log(`App is running on ${port} yea`);
 })

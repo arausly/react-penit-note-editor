@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import {
-	 connect 
+	connect 
 } from 'react-redux';
 
 import NoteFooter from './NoteFooter';
@@ -16,17 +16,17 @@ export default class NoteApp extends Component{
 		}
 	}
 	render(){	
-//		 const children = React.Children.map(this.props.children,(child) =>{
-//			return React.cloneElement(child,{
-//					notes:this.state.notes,
-//				    name:"something",
-//				});
-//		 });
+		//		 const children = React.Children.map(this.props.children,(child) =>{
+		//			return React.cloneElement(child,{
+		//					notes:this.state.notes,
+		//				    name:"something",
+		//				});
+		//		 });
 		return(
 			<div>
-			<NoteHeader/>
-		      {this.props.children}
-			<NoteFooter/>
+				<NoteHeader/>
+				{this.props.children}
+				<NoteFooter/>
 			</div>
 		);
 	}

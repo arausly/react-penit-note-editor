@@ -20,7 +20,7 @@ export class NotePane extends Component{
 			{
 				displayNotes.map((notes,index)=>{
 					return (
-						<NavLink key={index} to="/Notes">
+						<NavLink key={index} to={`/Notes/${encodeURIComponent(notes.id)}/edit`}>
 			                  <ul>
 								<li>{notes.title}</li>
 								<li>{notes.text}</li>
