@@ -1,0 +1,12 @@
+{
+	"development":{
+	  "MONGODB_URI":"mongodb://localhost:27017/NoteApp",
+	  "JWT_SECRET":"hfjherkjrjjfe",
+	  "PORT":"3000"
+	},
+	"test":{
+	  "MONGODB_URI":"mongodb://localhost:27017/NoteAppTest",
+	  "JWT_SECRET":"hfjhejekjkerkiee",
+	  "PORT":"3000"	
+	}
+}

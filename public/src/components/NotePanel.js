@@ -1,22 +1,24 @@
 import React,{Component} from 'react';
-import ReactDOM from 'react-dom';
 import {
 	Link
 } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-
-import NoteTitle from './NoteTitle';
-import NoteEditor from './NoteEditor';
 import {
 	connect
 } from 'react-redux';
+
+import NoteTitle from './NoteTitle';
+import NoteEditor from './NoteEditor';
+import NoteFooter from './NoteFooter';
+
 
 export class NotePanel extends Component{
 	constructor(props){
 		super(props);
 		this.handleTitle = this.handleTitle.bind(this);
 		this.handleText = this.handleText.bind(this);
+		this.handleDelete = this.handleDelete.bind(this);
 		this.state ={
 			text:"",
 			title:"",
@@ -27,6 +29,12 @@ export class NotePanel extends Component{
 	componentWillMount(){
 	  this.handleTitle();
 	  this.handleText();
+	}
+	
+	componentWillUnmount(){
+		if(this.state.typing === "typing"){
+			alert('leaving without saving');
+		}	
 	}
 	
 	handleTitle(title){
@@ -42,7 +50,16 @@ export class NotePanel extends Component{
 			this.setState({typing:"typing"});
 		}
 	}
-
+	
+    handleDelete(e){
+	   	e = e === undefined ? window.event : e;
+		e.preventDefault();
+		let {id} = this.state;
+		axios.delete(`/delete/${id}`)
+		     .then(res =>alert('yea'))
+		     .catch(err => alert('nah'));
+	}
+	
 	render(){
 		const {id,title,text} = this.state
 		const renderBtn = () =>{
@@ -73,12 +90,16 @@ export class NotePanel extends Component{
 		return(
 			<div>
 				<div>
+					<button onClick={this.handleDelete}>Delete</button>
+				</div>	
+				<div>
 					<NoteTitle id={id} handleTitle={this.handleTitle}/>
 				</div>
 				<div>
 					<NoteEditor id={id} handleText={this.handleText}/>
 				</div>
 				{renderBtn()}
+				<NoteFooter />
 			</div>	
 		);
 	}

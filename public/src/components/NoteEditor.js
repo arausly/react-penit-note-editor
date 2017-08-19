@@ -1,13 +1,12 @@
 import React, {
 	Component
 } from 'react';
-import ReactDOM from 'react-dom';
 import {
 	connect
 } from 'react-redux';
 
 
-export class NoteEditor extends Component {
+export class NoteEditor extends Component{
 	constructor(props) {
 		super(props);
 		this.passTextVal = this.passTextVal.bind(this);

@@ -11,7 +11,7 @@ class NoteHeader extends Component{
 			<div>
 				<button>Search</button>
 				<h1>PENit</h1>	
-				<NavLink to="/newNote"><button>New Note</button></NavLink>
+				<NavLink to="/home/newNote"><button>New Note</button></NavLink>
 			</div>
 		);
 	}

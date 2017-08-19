@@ -11,10 +11,9 @@ import moment from 'moment';
 import {
 	connect
 } from 'react-redux';
-
 import NotePane from './NotePane';
-class NoteSplash extends Component{
 
+export class NoteSplash extends Component{
 	render(){
 		const {displayNotes} = this.props;
 			return(

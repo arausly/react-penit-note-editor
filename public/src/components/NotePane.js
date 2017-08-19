@@ -1,7 +1,6 @@
 import React, {
 	Component
 } from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import {
@@ -16,11 +15,10 @@ export class NotePane extends Component{
 	 const {displayNotes}  = this.props;
 		return(
 		<div>
-
 			{
 				displayNotes.map((notes,index)=>{
 					return (
-						<NavLink key={index} to={`/Notes/${encodeURIComponent(notes.id)}/edit`}>
+						<NavLink key={index} to={`home/Notes/${encodeURIComponent(notes.id)}/edit`}>
 			                  <ul>
 								<li>{notes.title}</li>
 								<li>{notes.text}</li>
@@ -34,8 +32,6 @@ export class NotePane extends Component{
 		);
 	}
 }
-
-
 NotePane.propTypes ={
   displayNotes:PropTypes.array.isRequired
 }

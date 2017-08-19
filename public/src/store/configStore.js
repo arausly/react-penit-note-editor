@@ -15,6 +15,7 @@ const config = () =>{
 
 	// window.devToolsExtensions is to enable the redux developer plugin for this app in the browser
 	//should probably remove in prod.
+	// i don't think so.
 
 	const store = redux.createStore(reducer,redux.compose(
 		redux.applyMiddleware(reduxThunk),

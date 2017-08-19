@@ -22,21 +22,31 @@ import NoteSplash from './components/NoteSplash';
 import NotePanel from './components/NotePanel';
 import Error404 from './components/Error404';
 import NewNote from './components/NewNote';
+import Login from './components/Login';
+import SignIn from './components/SignIn';
+import Home from './components/Home';
+
 
 store.dispatch(startDisplayNotes());
+
+// what should be the link of my sign in button
+// what should be on my noteapp component.
 
 ReactDOM.render( 
 	<Router>
 		<Provider store={store}>
 			<NoteApp>
-	           <Switch>
-					<Route exact={true} path="/" component={NoteSplash}/>
-	                <Route path="/newNote" component={NewNote} />
-					<Route path="/Notes/:id/edit" component={NotePanel} />
-					<Route component = {Error404} />
-	           </Switch>
+					<Switch>
+						<Route exact={true} path="/" component={SignIn} />
+						<Route path="/login" component={Login} />
+						<Route exact path="/home" component={Home} />
+						<Route exact path="/home/newNote" component={NewNote} />
+						<Route exact path="/home/Notes/:id/edit" component={NotePanel} />
+						<Route component = {Error404} />
+						
+					</Switch>
 			</NoteApp>	
 		</Provider>
 	</Router>, 
-document.getElementById('main')
+	document.getElementById('main')
 );

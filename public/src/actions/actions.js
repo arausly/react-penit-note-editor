@@ -1,5 +1,6 @@
 import uuid from 'node-uuid';
 import moment from 'moment';
+import axios from 'axios';
 
 
 const displayNotes = (notes) => {
@@ -11,21 +12,17 @@ const displayNotes = (notes) => {
 
 const startDisplayNotes = () => {
 	return (dispatch) => {
-		let notes = [
-			{
-				id: uuid(),
-				title: "Design thinking",
-				text: "the philosophy of design thinking is as old as man",
-				date: moment().valueOf(),
-			},
-			{
-				id: uuid(),
-				title: "Best practices js",
-				text: "A wise man once said we think the we code",
-				date: moment().valueOf(),
-			}
-		]
-		return dispatch(displayNotes(notes));
+		let notes = [];
+//		try {
+//			return axios.get('/notes')
+//				.then(res => {
+//					res.data.map(note => notes.push(Object.assign({}, note, {
+//						id: note._id,
+//						date: moment().valueOf()
+//					})));
+//					dispatch(displayNotes(notes));
+//				})
+//		}catch (err) {}
 	}
 }
 
